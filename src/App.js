@@ -1,6 +1,7 @@
 import {useLocation, Route, Routes } from 'react-router-dom';
 import Header from './components/layouts/header';
 import Sidebar from './components/layouts/sidebar';
+import Footer from './components/layouts/footer';
 import Index from './components/pages/index';
 
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/admin' element={<Index/>}/>
       </Routes>
+      <Footer></Footer>
       </div>
     </div>
   );
