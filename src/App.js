@@ -2,7 +2,7 @@ import {useLocation, Route, Routes } from 'react-router-dom';
 import Header from './components/layouts/header';
 import Sidebar from './components/layouts/sidebar';
 import Footer from './components/layouts/footer';
-import Index from './components/pages/index';
+import Dashboard from './components/pages/dashboard';
 
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Header></Header>
       <Sidebar></Sidebar>
       <Routes>
-        <Route path='/admin' element={<Index/>}/>
+        <Route path='/admin' element={<Dashboard/>}/>
       </Routes>
       <Footer></Footer>
       </div>
