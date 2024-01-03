@@ -5,7 +5,7 @@ function Header() {
         <header class="topbar">
         <nav class="navbar top-navbar navbar-expand-md navbar-dark">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/dashboard">
                     <b>
                        <i class="wi wi-sunset"></i>
                         <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
