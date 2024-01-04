@@ -3,6 +3,8 @@ import Header from './components/layouts/header';
 import Sidebar from './components/layouts/sidebar';
 import Footer from './components/layouts/footer';
 import Dashboard from './components/pages/dashboard';
+import Users from './components/pages/users';
+import View_orders from './components/pages/view_orders';
 
 import Orders from './components/pages/orders';
 import Orders_create from './components/pages/orders_create';
@@ -28,6 +30,8 @@ function App() {
       <Sidebar></Sidebar>
       <Routes>
         <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/users' element={<Users/>}/>
+        <Route path='/view_orders' element={<View_orders/>}/>
 
         <Route path='/orders' element={<Orders/>}/>
         <Route path='/orders_create' element={<Orders_create/>}/>

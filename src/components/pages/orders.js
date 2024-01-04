@@ -31,10 +31,11 @@ function Orders() {
                                                 <th>Status</th>
                                                 <th>Created At</th>
                                                 <th>Actions</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr style={{verticalAlign: "initial"}}>
                                                 <td>1</td>
                                                 <td>Nguyễn Đức Anh</td>
                                                 <td>50$</td>
@@ -43,46 +44,51 @@ function Orders() {
                                                 </td>
                                                 <td>10-7-2017</td>
                                                 <td><a href="/orders_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
                                             </tr>
-                                            <tr>
+                                            <tr style={{verticalAlign: "initial"}}>
                                                 <td>2</td>
-                                                <td>Nguyễn Hoàng Hiệp</td>
+                                                <td>Nguyễn Đức Anh</td>
                                                 <td>50$</td>
                                                 <td>
-                                                <span class="label label-warning">Pending</span>
+                                                    <span class="label label-success">Paid</span>
                                                 </td>
                                                 <td>10-7-2017</td>
                                                 <td><a href="/orders_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
                                             </tr>
-                                            <tr>
+                                            <tr style={{verticalAlign: "initial"}}>
                                                 <td>3</td>
-                                                <td>Nguyễn Bùi Minh Hiếu</td>
+                                                <td>Nguyễn Đức Anh</td>
                                                 <td>50$</td>
                                                 <td>
-                                                <span class="label label-danger">Failed</span>
+                                                    <span class="label label-success">Paid</span>
                                                 </td>
                                                 <td>10-7-2017</td>
                                                 <td><a href="/orders_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
                                             </tr>
-                                            <tr>
+                                            <tr style={{verticalAlign: "initial"}}>
                                                 <td>4</td>
-                                                <td>Nguyễn Khánh</td>
+                                                <td>Nguyễn Đức Anh</td>
                                                 <td>50$</td>
                                                 <td>
                                                     <span class="label label-success">Paid</span>
                                                 </td>
                                                 <td>10-7-2017</td>
                                                 <td><a href="/orders_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
                                             </tr>
-                                            <tr>
+                                            <tr style={{verticalAlign: "initial"}}>
                                                 <td>5</td>
-                                                <td>Sái Tiến Đức</td>
+                                                <td>Nguyễn Đức Anh</td>
                                                 <td>50$</td>
                                                 <td>
                                                     <span class="label label-success">Paid</span>
                                                 </td>
                                                 <td>10-7-2017</td>
                                                 <td><a href="/orders_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

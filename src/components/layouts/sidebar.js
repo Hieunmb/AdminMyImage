@@ -1,5 +1,6 @@
 import React from "react";
 import { LuLayoutDashboard } from "react-icons/lu";
+import { AiOutlineUserSwitch } from "react-icons/ai";
 import { FaJediOrder } from "react-icons/fa";
 import { TbHanger } from "react-icons/tb";
 import { GiResize } from "react-icons/gi";
@@ -14,6 +15,8 @@ function Sidebar() {
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
                     <li> <a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i style={{verticalAlign:"initial"}}><LuLayoutDashboard/></i><span>Dashboard</span></a>
+                    </li>
+                    <li> <a class="waves-effect waves-dark" href="/users" aria-expanded="false"><i style={{verticalAlign:"initial"}}><AiOutlineUserSwitch/></i><span>Users</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="/orders" aria-expanded="false"><i style={{verticalAlign:"initial"}}><FaJediOrder/></i><span>Orders</span></a>
                     </li>
