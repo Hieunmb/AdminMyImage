@@ -17,8 +17,8 @@ function Header() {
             </div>
             <div class="navbar-collapse" style={{background:"#212529"}}>
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                    <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+                    <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="#"><i class="ti-menu"></i></a> </li>
+                    <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="#"><i class="icon-menu"></i></a> </li>
                     <li class="nav-item">
                         <form class="app-search d-none d-md-block d-lg-block">
                             <input type="text" class="form-control" placeholder="Search & enter"/>
@@ -37,22 +37,22 @@ function Header() {
                                 </li>
                                 <li>
                                     <div class="message-center">
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="btn btn-danger btn-circle text-white"><i class="fa fa-link"></i></div>
                                             <div class="mail-contnet">
                                                 <h5>Luanch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="btn btn-success btn-circle text-white"><i class="ti-calendar"></i></div>
                                             <div class="mail-contnet">
                                                 <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="btn btn-info btn-circle text-white"><i class="ti-settings"></i></div>
                                             <div class="mail-contnet">
                                                 <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
@@ -60,7 +60,7 @@ function Header() {
                                     </div>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-center link" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    <a class="nav-link text-center link" href="#;"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
                                 </li>
                             </ul>
                         </div>
@@ -76,22 +76,22 @@ function Header() {
                                 </li>
                                 <li>
                                     <div class="message-center">
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="user-img"> <img src="../assets/images/users/1.jpg" alt="user" class="img-circle"/> <span class="profile-status online pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="user-img"> <img src="../assets/images/users/2.jpg" alt="user" class="img-circle"/> <span class="profile-status busy pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Sonu Nigam</h5> <span class="mail-desc">I've sung a song! See you at</span> <span class="time">9:10 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="user-img"> <img src="../assets/images/users/3.jpg" alt="user" class="img-circle"/> <span class="profile-status away pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Arijit Sinh</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span> </div>
                                         </a>
-                                        <a href="javascript:void(0)">
+                                        <a href="#">
                                             <div class="user-img"> <img src="../assets/images/users/4.jpg" alt="user" class="img-circle"/> <span class="profile-status offline pull-right"></span> </div>
                                             <div class="mail-contnet">
                                                 <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span> </div>
@@ -99,7 +99,7 @@ function Header() {
                                     </div>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-center link" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                    <a class="nav-link text-center link" href="#;"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
                                 </li>
                             </ul>
                         </div>
@@ -189,17 +189,17 @@ function Header() {
                                 <li class="col-lg-3 col-xlg-4 m-b-30">
                                     <h4 class="m-b-20">List style</h4>
                                     <ul class="list-style-none">
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> You can give link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Give link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another Give link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Forth link</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
+                                        <li><a href="#"><i class="fa fa-check text-success"></i> You can give link</a></li>
+                                        <li><a href="#"><i class="fa fa-check text-success"></i> Give link</a></li>
+                                        <li><a href="#"><i class="fa fa-check text-success"></i> Another Give link</a></li>
+                                        <li><a href="#"><i class="fa fa-check text-success"></i> Forth link</a></li>
+                                        <li><a href="#"><i class="fa fa-check text-success"></i> Another fifth link</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                     </li>
-                    <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                    <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="#"><i class="ti-settings"></i></a></li>
                 </ul>
             </div>
         </nav>
