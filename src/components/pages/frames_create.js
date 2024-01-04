@@ -1,56 +1,58 @@
-function Frames_create() {
+function Frames_Create() {
     return (
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Frames Create</h4>
+        <div className="page-wrapper">
+            <div className="container-fluid">
+                <div className="row page-titles">
+                    <div className="col-md-5 align-self-center">
+                        <h4 className="text-themecolor">Create Frame</h4>
                     </div>
-                    <div class="col-md-7 align-self-center text-end">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <ol class="breadcrumb justify-content-end">
-                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                <li class="breadcrumb-item">Frames</li>
-                                <li class="breadcrumb-item active">Frames Create</li>
+                    <div className="col-md-7 align-self-center text-end">
+                        <div className="d-flex justify-content-end align-items-center">
+                            <ol className="breadcrumb justify-content-end">
+                                <li className="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li className="breadcrumb-item">Frames</li>
+                                <li className="breadcrumb-item active">Create Frame</li>
                             </ol>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Create</h5>
-                                <div class="table-responsive m-t-30">
-                                    <table class="table product-overview">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">Create Frame</h5>
+                                <div className="table-responsive">
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
-                                                <th>FrameName</th>
-                                                <th>Frame Color Outsite</th>
-                                                <th>Frame Color Insite</th>
+                                                <th>Frame Name</th>
+                                                <th>Frame Color Outside</th>
+                                                <th>Frame Color Inside</th>
                                                 <th>Frame Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" class="form-control"></input></td>
-                                                <td><input type="text" class="form-control"></input></td>
-                                                <td><input type="text" class="form-control"></input></td>
-                                                <td><input type="text" class="form-control"></input></td>
-                                                <td><input type="text" class="form-control"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Frame Name"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Frame Color Outside"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Frame Color Inside"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Frame Price"></input></td>
                                             </tr>
                                         </tbody>
-                                    </table> 
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a type="button" class="btn btn-info " href="/frames">Create</a>
+                <div className="row mt-3">
+                    <div className="col-md-12 text-end">
+                        <a className="btn btn-info" href="/frames">Create</a>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
-    
-export default Frames_create;
+
+export default Frames_Create;

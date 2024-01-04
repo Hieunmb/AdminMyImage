@@ -1,53 +1,54 @@
-function Hangers_create() {
+function Hangers_Create() {
     return (
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Hangers Create</h4>
+        <div className="page-wrapper">
+            <div className="container-fluid">
+                <div className="row page-titles">
+                    <div className="col-md-5 align-self-center">
+                        <h4 className="text-themecolor">Create Hanger</h4>
                     </div>
-                    <div class="col-md-7 align-self-center text-end">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <ol class="breadcrumb justify-content-end">
-                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                <li class="breadcrumb-item">Hangers</li>
-                                <li class="breadcrumb-item active">Hangers Create</li>
+                    <div className="col-md-7 align-self-center text-end">
+                        <div className="d-flex justify-content-end align-items-center">
+                            <ol className="breadcrumb justify-content-end">
+                                <li className="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li className="breadcrumb-item">Hangers</li>
+                                <li className="breadcrumb-item active">Create Hanger</li>
                             </ol>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Create</h5>
-                                <div class="table-responsive m-t-30">
-                                    <table class="table product-overview">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">Create Hanger</h5>
+                                <div className="table-responsive">
+                                    <table className="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Id</th>
                                                 <th>Hanger Name</th>
                                                 <th>Hanger Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text"  class="form-control"></input></td>
-                                                <td><input type="text"  class="form-control"></input></td>
-                                                <td><input type="text"  class="form-control"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Hanger Name"></input></td>
+                                                <td><input type="text" className="form-control" placeholder="Enter Hanger Price"></input></td>
                                             </tr>
                                         </tbody>
-                                    </table> 
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a type="button" class="btn btn-info " href="/frames">Create</a>
-
+                <div className="row mt-3">
+                    <div className="col-md-12 text-end">
+                        <a className="btn btn-info" href="/frames">Create</a>
+                    </div>
+                </div>
             </div>
         </div>
-    )
+    );
 }
-    
-export default Hangers_create;
+
+export default Hangers_Create;
