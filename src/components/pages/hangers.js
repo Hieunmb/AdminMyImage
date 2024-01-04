@@ -20,7 +20,7 @@ function Hangers() {
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Hangers</h5>
+                                <h5 class="card-title">List Hangers</h5>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>

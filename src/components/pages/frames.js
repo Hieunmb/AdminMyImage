@@ -20,7 +20,7 @@ function Frames() {
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Frames</h5>
+                                <h5 class="card-title">List Frames</h5>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>

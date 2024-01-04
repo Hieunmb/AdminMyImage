@@ -20,7 +20,7 @@ function Orders() {
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Orders</h5>
+                                <h5 class="card-title">List Orders</h5>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>

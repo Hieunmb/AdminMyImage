@@ -5,6 +5,7 @@ import Footer from './components/layouts/footer';
 import Dashboard from './components/pages/dashboard';
 import Users from './components/pages/users';
 import View_orders from './components/pages/view_orders';
+import Feedback from './components/pages/feedback';
 
 import Orders from './components/pages/orders';
 import Orders_create from './components/pages/orders_create';
@@ -22,8 +23,6 @@ import Frames from './components/pages/frames';
 import Frames_create from './components/pages/frames_create';
 import Frames_edit from './components/pages/frames_edit';
 
-import Listfb from './components/pages/listfb';
-
 function App() {
   return (
     <div className="App">
@@ -34,6 +33,7 @@ function App() {
         <Route path='/dashboard' element={<Dashboard/>}/>
         <Route path='/users' element={<Users/>}/>
         <Route path='/view_orders' element={<View_orders/>}/>
+        <Route path='/feedback' element={<Feedback/>}/> 
 
         <Route path='/orders' element={<Orders/>}/>
         <Route path='/orders_create' element={<Orders_create/>}/>
@@ -50,8 +50,6 @@ function App() {
         <Route path='/frames' element={<Frames/>}/>
         <Route path='/frames_create' element={<Frames_create/>}/>
         <Route path='/frames_edit' element={<Frames_edit/>}/>
-
-        <Route path='/listfb' element={<Listfb/>}/> 
         
       </Routes>
       <Footer></Footer>

@@ -26,7 +26,7 @@ function Sidebar() {
                     </li>
                     <li> <a class="waves-effect waves-dark" href="/frames" aria-expanded="false"><i style={{verticalAlign:"initial"}}><MdOutlineFilterFrames/></i><span>Frames</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i style={{verticalAlign:"initial"}}><MdOutlineFeedback/></i><span>Feedback</span></a>
+                    <li> <a class="waves-effect waves-dark" href="/feedback" aria-expanded="false"><i style={{verticalAlign:"initial"}}><MdOutlineFeedback/></i><span>Feedbacks</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i style={{verticalAlign:"initial"}}><BiLogOut/></i><span>Logout</span></a>
                     </li>

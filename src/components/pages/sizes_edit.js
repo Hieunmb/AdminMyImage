@@ -4,7 +4,17 @@ function Sizes_Edit() {
             <div className="container-fluid">
                 <div className="row page-titles">
                     <div className="col-md-5 align-self-center">
-                        <h4 className="text-themecolor">Edit Size</h4>
+                        <h4 className="text-themecolor">Sizes Edit</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb justify-content-end">
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item ">Sizes</li>
+                                <li class="breadcrumb-item active">Sizes Edit</li>
+
+                            </ol>
+                        </div>
                     </div>
                 </div>
                 <div className="row">

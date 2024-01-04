@@ -1,12 +1,20 @@
-
-
 function Hangers_Edit() {
     return (
         <div className="page-wrapper">
             <div className="container-fluid">
                 <div className="row page-titles">
                     <div className="col-md-5 align-self-center">
-                        <h4 className="text-themecolor">Edit Hanger</h4>
+                        <h4 className="text-themecolor">Hangers Edit</h4>
+                    </div>
+                    <div class="col-md-7 align-self-center text-end">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <ol class="breadcrumb justify-content-end">
+                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li class="breadcrumb-item ">Hangers</li>
+                                <li class="breadcrumb-item active">Hangers Edit</li>
+
+                            </ol>
+                        </div>
                     </div>
                 </div>
                 <div className="row">
@@ -33,9 +41,7 @@ function Hangers_Edit() {
                                             placeholder="Enter Hanger Price"
                                         />
                                     </div>
-                                    <button type="button" className="btn btn-primary">
-                                        Save
-                                    </button>
+                                    <button type="button" className="btn btn-primary">Save</button>
                                 </form>
                             </div>
                         </div>
