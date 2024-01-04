@@ -1,17 +1,16 @@
-function Hangers_create() {
+function Listfb() {
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
                 <div class="row page-titles">
                     <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Hangers Create</h4>
+                        <h4 class="text-themecolor">List Feedback</h4>
                     </div>
                     <div class="col-md-7 align-self-center text-end">
                         <div class="d-flex justify-content-end align-items-center">
                             <ol class="breadcrumb justify-content-end">
                                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                <li class="breadcrumb-item">Hangers</li>
-                                <li class="breadcrumb-item active">Hangers Create</li>
+                                <li class="breadcrumb-item active">List Feedback</li>
                             </ol>
                         </div>
                     </div>
@@ -20,34 +19,34 @@ function Hangers_create() {
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Create</h5>
+                                <h5 class="card-title">List Feedback</h5>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
-                                                <th>Hanger Name</th>
-                                                <th>Hanger Price</th>
+                                                <th>Name</th>
+                                                <th>Gmail/Phone</th>
+                                                <th>Comments</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text"  class="form-control"></input></td>
-                                                <td><input type="text"  class="form-control"></input></td>
-                                                <td><input type="text"  class="form-control"></input></td>
+                                                <td>1</td>
+                                                <td>Nguyen Van A</td>
+                                                <td>1234567890</td>
+                                                <td><a href="#" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
                                             </tr>
                                         </tbody>
-                                    </table> 
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a type="button" class="btn btn-info " href="/frames">Create</a>
-
             </div>
         </div>
     )
 }
     
-export default Hangers_create;
+export default Listfb;

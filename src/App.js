@@ -20,6 +20,8 @@ import Frames from './components/pages/frames';
 import Frames_create from './components/pages/frames_create';
 import Frames_edit from './components/pages/frames_edit';
 
+import Listfb from './components/pages/listfb';
+
 function App() {
   return (
     <div className="App">
@@ -44,6 +46,8 @@ function App() {
         <Route path='/frames' element={<Frames/>}/>
         <Route path='/frames_create' element={<Frames_create/>}/>
         <Route path='/frames_edit' element={<Frames_edit/>}/>
+
+        <Route path='/listfb' element={<Listfb/>}/> 
         
       </Routes>
       <Footer></Footer>
