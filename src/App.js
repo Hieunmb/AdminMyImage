@@ -58,7 +58,7 @@ const ProtectedLoginRoute = ({ element }) => {
         )}
         <Routes>
           <Route path='/login' element={<ProtectedLoginRoute element={<Login />} />} />
-          <Route path='/dashboard' element={<ProtectedRoute element={<Dashboard />} />}/>
+          <Route path='/' element={<ProtectedRoute element={<Dashboard />} />}/>
           <Route path='/users' element={<ProtectedRoute element={<Users />} />}/>
           <Route path='/view_orders' element={<ProtectedRoute element={<View_orders />} />}/>
           <Route path='/feedback' element={<ProtectedRoute element={<Feedback />} />}/>
@@ -77,7 +77,7 @@ const ProtectedLoginRoute = ({ element }) => {
 
           <Route path='/frames' element={<ProtectedRoute element={<Frames />} />}/>
           <Route path='/frames_create' element={<ProtectedRoute element={<Frames_create />} />}/>
-          <Route path='/frames_edit' element={<ProtectedRoute element={<Frames_edit />} />}/>
+          <Route path='/frames_edit/:id' element={<ProtectedRoute element={<Frames_edit />} />}/>
         </Routes>
         {!isLoginPage && (
           <>

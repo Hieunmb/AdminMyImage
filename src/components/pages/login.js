@@ -57,7 +57,7 @@ const handleSubmit = async (e) => {
       const loginResponse = await api.post(url.ADMIN.LOGIN, formData,config);
         const token = loginResponse.data.token;
         localStorage.setItem("accessToken", token);
-        navigate("/dashboard");
+        navigate("/");
     } catch (error) {
       setFormErrors({
         email: "Invalid email or password.",

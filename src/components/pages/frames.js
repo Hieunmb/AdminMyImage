@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../../services/api";
 import url from "../../services/url";
+import Frame from "../views/frame";
 
 function Frames() {
     const [products,setProducts] = useState([]);
@@ -50,46 +51,13 @@ function Frames() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Black Pink Idol</td>
-                                                <td>Black</td>
-                                                <td>Pink</td>
-                                                <td>50$</td>
-                                                <td><a href="/frames_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Black Pink Idol</td>
-                                                <td>Black</td>
-                                                <td>Pink</td>
-                                                <td>50$</td>
-                                                <td><a href="/frames_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Black Pink Idol</td>
-                                                <td>Black</td>
-                                                <td>Pink</td>
-                                                <td>50$</td>
-                                                <td><a href="/frames_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Black Pink Idol</td>
-                                                <td>Black</td>
-                                                <td>Pink</td>
-                                                <td>50$</td>
-                                                <td><a href="/frames_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Black Pink Idol</td>
-                                                <td>Black</td>
-                                                <td>Pink</td>
-                                                <td>50$</td>
-                                                <td><a href="/frames_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
+                                        {
+                                            products.map((e,k)=>{
+                                                return (
+                                                        <Frame key={k} product={e} />
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
