@@ -1,4 +1,4 @@
-import { useLocation, Route, Routes } from 'react-router-dom';
+import { useLocation, Route, Routes, Navigate } from 'react-router-dom';
 import Header from './components/layouts/header';
 import Sidebar from './components/layouts/sidebar';
 import Footer from './components/layouts/footer';
@@ -19,8 +19,31 @@ import Frames from './components/pages/frames';
 import Frames_create from './components/pages/frames_create';
 import Frames_edit from './components/pages/frames_edit';
 import Login from './components/pages/login';
+import { useJwt } from 'react-jwt';
 
 function App() {
+  const ProtectedRoute = ({ element }) => {
+    const token = localStorage.getItem("accessToken");
+    const { isExpired, isInvalid } = useJwt(token);
+
+    if (!token || isExpired || isInvalid) {
+        localStorage.removeItem("accessToken");
+        return <Navigate to="/login" />;
+    }
+
+    return element;
+};
+
+const ProtectedLoginRoute = ({ element }) => {
+    const token = localStorage.getItem("accessToken");
+    const { isExpired, isInvalid } = useJwt(token);
+
+    if (token && !isExpired && !isInvalid) {
+        return <Navigate to="/dashboard" />;
+    }
+
+    return element;
+};
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
 
@@ -34,27 +57,27 @@ function App() {
           </>
         )}
         <Routes>
-          <Route path='login' element={<Login />} />
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/view_orders' element={<View_orders />} />
-          <Route path='/feedback' element={<Feedback />} />
+          <Route path='/login' element={<ProtectedLoginRoute element={<Login />} />} />
+          <Route path='/dashboard' element={<ProtectedRoute element={<Dashboard />} />}/>
+          <Route path='/users' element={<ProtectedRoute element={<Users />} />}/>
+          <Route path='/view_orders' element={<ProtectedRoute element={<View_orders />} />}/>
+          <Route path='/feedback' element={<ProtectedRoute element={<Feedback />} />}/>
 
-          <Route path='/orders' element={<Orders />} />
-          <Route path='/orders_create' element={<Orders_create />} />
-          <Route path='/orders_edit' element={<Orders_edit />} />
+          <Route path='/orders' element={<ProtectedRoute element={<Orders />} />}/>
+          <Route path='/orders_create' element={<ProtectedRoute element={<Orders_create />} />}/>
+          <Route path='/orders_edit' element={<ProtectedRoute element={<Orders_edit />} />}/>
 
-          <Route path='/hangers' element={<Hangers />} />
-          <Route path='/hangers_create' element={<Hangers_create />} />
-          <Route path='/hangers_edit' element={<Hangers_edit />} />
+          <Route path='/hangers' element={<ProtectedRoute element={<Hangers />} />}/>
+          <Route path='/hangers_create' element={<ProtectedRoute element={<Hangers_create />} />}/>
+          <Route path='/hangers_edit' element={<ProtectedRoute element={<Hangers_edit />} />}/>
 
-          <Route path='/sizes' element={<Sizes />} />
-          <Route path='/sizes_create' element={<Sizes_create />} />
-          <Route path='/sizes_edit' element={<Sizes_edit />} />
+          <Route path='/sizes' element={<ProtectedRoute element={<Sizes />} />}/>
+          <Route path='/sizes_create' element={<ProtectedRoute element={<Sizes_create />} />}/>
+          <Route path='/sizes_edit' element={<ProtectedRoute element={<Sizes_edit />} />}/>
 
-          <Route path='/frames' element={<Frames />} />
-          <Route path='/frames_create' element={<Frames_create />} />
-          <Route path='/frames_edit' element={<Frames_edit />} />
+          <Route path='/frames' element={<ProtectedRoute element={<Frames />} />}/>
+          <Route path='/frames_create' element={<ProtectedRoute element={<Frames_create />} />}/>
+          <Route path='/frames_edit' element={<ProtectedRoute element={<Frames_edit />} />}/>
         </Routes>
         {!isLoginPage && (
           <>

@@ -7,8 +7,14 @@ import { GiResize } from "react-icons/gi";
 import { MdOutlineFilterFrames } from "react-icons/md";
 import { MdOutlineFeedback } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+    const navigate=useNavigate();
+    const handleLogout = () => {
+        localStorage.removeItem("accessToken");
+        navigate("/login");
+    };
     return (
         <aside class="left-sidebar" style={{ flexDirection: "column" }}>
         <div class="scroll-sidebar">
@@ -28,7 +34,7 @@ function Sidebar() {
                     </li>
                     <li> <a class="waves-effect waves-dark" href="/feedback" aria-expanded="false"><i style={{verticalAlign:"initial"}}><MdOutlineFeedback/></i><span>Feedbacks</span></a>
                     </li>
-                    <li> <a class="waves-effect waves-dark" href="#" aria-expanded="false"><i style={{verticalAlign:"initial"}}><BiLogOut/></i><span>Logout</span></a>
+                    <li> <a onClick={handleLogout} class="waves-effect waves-dark" aria-expanded="false"><i style={{verticalAlign:"initial"}}><BiLogOut/></i><span>Logout</span></a>
                     </li>
                 </ul>
             </nav>

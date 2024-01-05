@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+
 function Frames() {
+    const [products,setProducts] = useState([]);
+    const loadProducts = async ()=>{
+        try {
+            const rs = await api.get(url.FRAME.LIST);
+            setProducts(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadProducts();
+    },[]);
     return (
         <div class="page-wrapper">
             <div class="container-fluid">

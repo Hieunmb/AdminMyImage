@@ -54,10 +54,10 @@ const handleSubmit = async (e) => {
           "Content-Type": "application/json",
         },
       };
-      const loginResponse = await api.post(url.USER.LOGIN, formData,config);
+      const loginResponse = await api.post(url.ADMIN.LOGIN, formData,config);
         const token = loginResponse.data.token;
         localStorage.setItem("accessToken", token);
-        navigate("/");
+        navigate("/dashboard");
     } catch (error) {
       setFormErrors({
         email: "Invalid email or password.",
@@ -68,7 +68,7 @@ const handleSubmit = async (e) => {
 };
     return(
         <section id="wrapper">
-        <div class="login-register" style={{
+        <div className="login-register" style={{
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center',
@@ -77,54 +77,54 @@ const handleSubmit = async (e) => {
             padding: '10% 0',
             position: 'fixed',
             backgroundImage: 'url(../assets/images/background/login-register.jpg)' }}>
-            <div class="login-box card" style={{marginLeft:"580px",display:'inline-block'}}>
-                <div class="card-body" style={{width:"400px",height:"455px", textAlign:"center"}}>
-                    <form class="form-horizontal form-material" id="loginform" method='POST' onSubmit={handleSubmit}>
-                        <h3 class="text-center m-b-20">Sign In</h3>
-                        <div class="form-group ">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="email"
+            <div className="login-box card" style={{marginLeft:"580px",display:'inline-block'}}>
+                <div className="card-body" style={{width:"400px",height:"455px", textAlign:"center"}}>
+                    <form className="form-horizontal form-material" id="loginform" method='POST' onSubmit={handleSubmit}>
+                        <h3 className="text-center m-b-20">Sign In</h3>
+                        <div className="form-group ">
+                            <div className="col-xs-12">
+                                <input className="form-control" type="email"
                         name="email"
                         id="email"
-                        onChange={handleChange} required="" placeholder="Username"/> </div>
+                        onChange={handleChange} required="" placeholder="Email"/> </div>
                         </div>
-                        {formErrors.email && <div className="invalid-feedback">{formErrors.email}</div>}
-                        <div class="form-group">
-                            <div class="col-xs-12">
-                                <input class="form-control" type="password"
+                        {formErrors.email && <div classNameName="invalid-feedback">{formErrors.email}</div>}
+                        <div className="form-group">
+                            <div className="col-xs-12">
+                                <input className="form-control" type="password"
                                 name="password"
                                 id="password"
                                 onChange={handleChange} required="" placeholder="Password"/> </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="customCheck1"/>
-                                        <label class="form-check-label" for="customCheck1">Remember me</label>
+                        <div className="form-group row">
+                            <div className="col-md-12">
+                                <div className="d-flex no-block align-items-center">
+                                    <div className="form-check">
+                                        <input type="checkbox" className="form-check-input" id="customCheck1"/>
+                                        <label className="form-check-label" for="customCheck1">Remember me</label>
                                     </div> 
-                                    <div class="ms-auto">
-                                        <a href="#" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Forgot pwd?</a> 
+                                    <div className="ms-auto">
+                                        <a href="#" id="to-recover" className="text-muted"><i className="fas fa-lock m-r-5"></i> Forgot pwd?</a> 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group text-center">
-                            <div class="col-xs-12 p-b-20">
-                                <button class="btn w-100 btn-lg btn-info btn-rounded text-white" type="submit">Log In</button>
+                        <div className="form-group text-center">
+                            <div className="col-xs-12 p-b-20">
+                                <button className="btn w-100 btn-lg btn-info btn-rounded text-white" type="submit">Log In</button>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                                <div class="social">
-                                    <button class="btn  btn-facebook" data-bs-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook-f"></i> </button>
-                                    <button class="btn btn-googleplus" data-bs-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus-g"></i> </button>
+                        <div className="row">
+                            <div className="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                                <div className="social">
+                                    <button className="btn  btn-facebook" data-bs-toggle="tooltip" title="Login with Facebook"> <i aria-hidden="true" className="fab fa-facebook-f"></i> </button>
+                                    <button className="btn btn-googleplus" data-bs-toggle="tooltip" title="Login with Google"> <i aria-hidden="true" className="fab fa-google-plus-g"></i> </button>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group m-b-0">
-                            <div class="col-sm-12 text-center">
-                                Don't have an account? <a href="pages-register.html" class="text-info m-l-5"><b>Sign Up</b></a>
+                        <div className="form-group m-b-0">
+                            <div className="col-sm-12 text-center">
+                                Don't have an account? <a href="pages-register.html" className="text-info m-l-5"><b>Sign Up</b></a>
                             </div>
                         </div>
                     </form>
