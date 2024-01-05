@@ -18,6 +18,13 @@ const url ={
         EDIT:"/Size",
         DELETE:"/Size",
         GET:"/Size/get-by-id"
+    },
+    HANGER:{
+        LIST:"/Hanger",
+        CREATE:"/Hanger",
+        EDIT:"/Hanger",
+        DELETE:"/Hanger",
+        GET:"/Hanger/get-by-id"
     }
 }
 export default url;

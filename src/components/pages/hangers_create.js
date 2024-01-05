@@ -1,4 +1,26 @@
+import { useEffect , useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import { useNavigate } from "react-router-dom";
 function Hangers_Create() {
+    const navigate=useNavigate();
+    const [formData, setFormData] = useState({
+        hanger_name: 0,
+        hanger_price: "",
+    });
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    const formSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const addHanger = await api.post(url.HANGER.CREATE, formData);
+            window.alert('Add hanger success!');
+            navigate('/hangers');
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <div className="page-wrapper">
             <div className="container-fluid">
@@ -21,10 +43,12 @@ function Hangers_Create() {
                         <div className="card">
                             <div className="card-body">
                                 <h5 className="card-title">Create New Hanger</h5>
-                                <form>
+                                <form method="POST" onSubmit={formSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="hangerName" className="form-label">Hanger Name</label>
                                         <input
+                                            onChange={handleChange}
+                                            value={formData.hanger_name}
                                             type="text"
                                             className="form-control"
                                             id="hangerName"
@@ -34,6 +58,9 @@ function Hangers_Create() {
                                     <div className="mb-3">
                                         <label htmlFor="hangerPrice" className="form-label">Hanger Price</label>
                                         <input
+                                         name="hanger_price"
+                                         onChange={handleChange}
+                                         value={formData.hanger_price}
                                             type="text"
                                             className="form-control"
                                             id="hangerPrice"

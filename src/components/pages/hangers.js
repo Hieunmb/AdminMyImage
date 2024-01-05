@@ -1,4 +1,21 @@
+import { useEffect,useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import Hanger from "../views/hanger";
+
 function Hangers() {
+    const [products,setProducts] = useState([]);
+    const loadProducts = async ()=>{
+        try {
+            const rs = await api.get(url.HANGER.LIST);
+            setProducts(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadProducts();
+    },[]);
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -32,36 +49,13 @@ function Hangers() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mắc treo bằng sắt</td>
-                                                <td>50$</td>
-                                                <td><a href="/hangers_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Mắc treo bằng sắt</td>
-                                                <td>50$</td>
-                                                <td><a href="/hangers_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Mắc treo bằng sắt</td>
-                                                <td>50$</td>
-                                                <td><a href="/hangers_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Mắc treo bằng sắt</td>
-                                                <td>50$</td>
-                                                <td><a href="/hangers_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Mắc treo bằng sắt</td>
-                                                <td>50$</td>
-                                                <td><a href="/hangers_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
+                                        {
+                                            products.map((e,k)=>{
+                                                return (
+                                                    <Hanger key={k} product={e} />
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
