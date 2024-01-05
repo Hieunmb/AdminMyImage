@@ -73,7 +73,7 @@ const ProtectedLoginRoute = ({ element }) => {
 
           <Route path='/sizes' element={<ProtectedRoute element={<Sizes />} />}/>
           <Route path='/sizes_create' element={<ProtectedRoute element={<Sizes_create />} />}/>
-          <Route path='/sizes_edit' element={<ProtectedRoute element={<Sizes_edit />} />}/>
+          <Route path='/sizes_edit/:id' element={<ProtectedRoute element={<Sizes_edit />} />}/>
 
           <Route path='/frames' element={<ProtectedRoute element={<Frames />} />}/>
           <Route path='/frames_create' element={<ProtectedRoute element={<Frames_create />} />}/>

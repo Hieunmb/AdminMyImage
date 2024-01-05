@@ -42,7 +42,7 @@ function Frames_Edit() {
     };
     const fetchData = async () => {
         try {
-            const response = await api.get(url.FRAME.GET); // Fetch data for the specific 'id'
+            const response = await api.get(url.FRAME.GET +`?id=${id}`); // Fetch data for the specific 'id'
             const { frame_amount, frame_name, frame_color_outsite, frame_color_insite } = response.data;
             setFormData({
                 ...formData,
@@ -75,17 +75,6 @@ function Frames_Edit() {
             window.alert('Edit frame success!');
             navigate('/frames');
         } catch (error) {
-            const amountAsInt = parseInt(formData.frame_amount, 10); // Radix 10 for base 10 numbers
-            const IdAsIn = parseInt(formData.id, 10); // Radix 10 for base 10 numbers       
-            // Assign selected colors to form data
-            const updatedFormData = {
-                ...formData,
-                id:IdAsIn,
-                frame_amount: amountAsInt, // Assign the integer value to frame_amount
-                frame_color_outsite: selectedColor.toString(),
-                frame_color_insite: selectedColorInsite.toString(),
-            };
-            console.log(updatedFormData)
             console.log(error);
         }
     };
@@ -94,14 +83,14 @@ function Frames_Edit() {
             <div className="container-fluid">
                 <div className="row page-titles">
                     <div className="col-md-5 align-self-center">
-                        <h4 className="text-themecolor">Frames Create</h4>
+                        <h4 className="text-themecolor">Frames Edit</h4>
                     </div>
                     <div className="col-md-7 align-self-center text-end">
                         <div className="d-flex justify-content-end align-items-center">
                             <ol className="breadcrumb justify-content-end">
                                 <li className="breadcrumb-item"><a href="#">Admin</a></li>
                                 <li className="breadcrumb-item">Frames</li>
-                                <li className="breadcrumb-item active">Frames Create</li>
+                                <li className="breadcrumb-item active">Frames Edit</li>
                             </ol>
                         </div>
                     </div>
@@ -110,7 +99,7 @@ function Frames_Edit() {
                     <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div className="card">
                             <div className="card-body">
-                                <h5 className="card-title">Create New Frame</h5>
+                                <h5 className="card-title">Edit Frame</h5>
                                 <form method="POST" onSubmit={formSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="frameName" className="form-label">Frame Name</label>
@@ -162,7 +151,7 @@ function Frames_Edit() {
                                             placeholder="Enter Frame Price"
                                         />
                                     </div>
-                                    <button type="submit" className="btn btn-primary">Create</button>
+                                    <button type="submit" className="btn btn-primary">Submit</button>
                                 </form>
                             </div>
                         </div>

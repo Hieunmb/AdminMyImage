@@ -1,28 +1,45 @@
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import Size from "../views/size";
+
 function Sizes() {
+    const [products,setProducts] = useState([]);
+    const loadProducts = async ()=>{
+        try {
+            const rs = await api.get(url.SIZE.LIST);
+            setProducts(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadProducts();
+    },[]);
     return (
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">Sizes</h4>
+        <div className="page-wrapper">
+            <div className="container-fluid">
+                <div className="row page-titles">
+                    <div className="col-md-5 align-self-center">
+                        <h4 className="text-themecolor">Sizes</h4>
                     </div>
-                    <div class="col-md-7 align-self-center text-end">
-                        <div class="d-flex justify-content-end align-items-center">
-                            <ol class="breadcrumb justify-content-end">
-                                <li class="breadcrumb-item"><a href="#">Admin</a></li>
-                                <li class="breadcrumb-item active">Sizes</li>
+                    <div className="col-md-7 align-self-center text-end">
+                        <div className="d-flex justify-content-end align-items-center">
+                            <ol className="breadcrumb justify-content-end">
+                                <li className="breadcrumb-item"><a href="#">Admin</a></li>
+                                <li className="breadcrumb-item active">Sizes</li>
                             </ol>
-                            <a type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white" href="/sizes_create">Create New</a>
+                            <a type="button" className="btn btn-info d-none d-lg-block m-l-15 text-white" href="/sizes_create">Create New</a>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">List Sizes</h5>
-                                <div class="table-responsive m-t-30">
-                                    <table class="table product-overview">
+                <div className="row">
+                    <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">List Sizes</h5>
+                                <div className="table-responsive m-t-30">
+                                    <table className="table product-overview">
                                         <thead>
                                             <tr>
                                                 <th>Id</th>
@@ -34,46 +51,13 @@ function Sizes() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Lớn</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>50$</td>
-                                                <td><a href="/sizes_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Lớn</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>50$</td>
-                                                <td><a href="/sizes_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Lớn</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>50$</td>
-                                                <td><a href="/sizes_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Lớn</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>50$</td>
-                                                <td><a href="/sizes_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Lớn</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>50$</td>
-                                                <td><a href="/sizes_edit" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
+                                        {
+                                            products.map((e,k)=>{
+                                                return (
+                                                    <Size key={k} product={e} />
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
