@@ -20,7 +20,7 @@ function Sidebar() {
         <div class="scroll-sidebar">
             <nav class="sidebar-nav">
                 <ul id="sidebarnav">
-                    <li> <a class="waves-effect waves-dark" href="/dashboard" aria-expanded="false"><i style={{verticalAlign:"initial"}}><LuLayoutDashboard/></i><span>Dashboard</span></a>
+                    <li> <a class="waves-effect waves-dark" href="/" aria-expanded="false"><i style={{verticalAlign:"initial"}}><LuLayoutDashboard/></i><span>Dashboard</span></a>
                     </li>
                     <li> <a class="waves-effect waves-dark" href="/users" aria-expanded="false"><i style={{verticalAlign:"initial"}}><AiOutlineUserSwitch/></i><span>Users</span></a>
                     </li>

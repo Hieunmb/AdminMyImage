@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 function Frames_Edit() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [selectedColor, setSelectedColor] = useState('');
-    const [selectedColorInsite, setSelectedColorInsite] = useState('');
+    const [selectedColor, setSelectedColor] = useState('#000000');
+    const [selectedColorInsite, setSelectedColorInsite] = useState('#000000');
 
     const handleColorChange = (color) => {
         // Validate color format before setting
@@ -31,7 +31,7 @@ function Frames_Edit() {
         }
     };
     const [formData, setFormData] = useState({
-        id:0,
+        id:id,
         frame_amount: 0,
         frame_name: "",
         frame_color_outsite:"",

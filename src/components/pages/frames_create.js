@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 function Frames_Create() {
     const navigate = useNavigate();
-    const [selectedColor, setSelectedColor] = useState('');
-    const [selectedColorInsite, setSelectedColorInsite] = useState('');
+    const [selectedColor, setSelectedColor] = useState('#000000');
+    const [selectedColorInsite, setSelectedColorInsite] = useState('#000000');
 
     const handleColorChange = (color) => {
         // Validate color format before setting

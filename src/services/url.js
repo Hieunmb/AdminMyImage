@@ -10,7 +10,7 @@ const url ={
         CREATE:"/Frame",
         EDIT:"/Frame",
         DELETE:"/Frame",
-        GET:"/Frame/get-by-id"
+        GET:"/Frame/get-by-id/{}"
     }
 }
 export default url;
