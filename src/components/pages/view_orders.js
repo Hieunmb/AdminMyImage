@@ -54,6 +54,25 @@ function View_orders() {
                                             </table>
                                         </div>
                                     </div>
+                                    <div className="row" style={{marginLeft:"40px"}}>
+                                        <div className="col-xl-6">
+                                            <ul className="list-unstyled">
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Name: </span><span>Nguyen Hoang Hiep</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Email: </span><span>hiepga1243@gmail.com</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Phone: </span><span>0396321425</span></li>
+                                            </ul>
+                                        </div>
+                                        <div className="col-xl-6">
+                                            <ul className="list-unstyled">
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Street: </span><span>So 10 ngo 83/51/21 Tan Trieu</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>City: </span><span>Ha Noi</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div style={{marginTop:"20px", marginLeft:"45px", marginBottom:"30px"}}>
+                                        <a href="#" className="btn btn-success">Confirm</a>
+                                        <a href="#" className="btn btn-primary" style={{marginLeft:"20px"}}>Cancel</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
