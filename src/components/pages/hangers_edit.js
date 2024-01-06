@@ -10,18 +10,18 @@ function Hangers_Edit() {
     const [formData, setFormData] = useState({
         id:id,
         hanger_name: "",
-        hanger_price: 0,
+        hanger_amount: 0,
     });
     const fetchData = async () => {
         try {
             const response = await api.get(url.HANGER.GET+`?id=${id}`); // Fetch data for the specific 'id'
             const { hanger_name,
-                hanger_price,
+                hanger_amount,
                  } = response.data;
             setFormData({
                 ...formData,
                 hanger_name,
-                hanger_price
+                hanger_amount
               
             });
         } catch (error) {
@@ -73,6 +73,7 @@ function Hangers_Edit() {
                                         <label htmlFor="hangerName" className="form-label">Hanger Name</label>
                                         <input
                                             type="text"
+                                            name="hanger_name"
                                             onChange={handleChange}
                                             value={formData.hanger_name}
                                             className="form-control"
@@ -85,13 +86,14 @@ function Hangers_Edit() {
                                         <input
                                             type="text"
                                             onChange={handleChange}
-                                            value={formData.hanger_price}
+                                            name="hanger_amount"
+                                            value={formData.hanger_amount}
                                             className="form-control"
                                             id="hangerPrice"
                                             placeholder="Enter Hanger Price"
                                         />
                                     </div>
-                                    <button type="button" className="btn btn-primary">Save</button>
+                                    <button type="submit" className="btn btn-primary">Save</button>
                                 </form>
                             </div>
                         </div>

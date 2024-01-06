@@ -69,7 +69,7 @@ const ProtectedLoginRoute = ({ element }) => {
 
           <Route path='/hangers' element={<ProtectedRoute element={<Hangers />} />}/>
           <Route path='/hangers_create' element={<ProtectedRoute element={<Hangers_create />} />}/>
-          <Route path='/hangers_edit' element={<ProtectedRoute element={<Hangers_edit />} />}/>
+          <Route path='/hangers_edit/:id' element={<ProtectedRoute element={<Hangers_edit />} />}/>
 
           <Route path='/sizes' element={<ProtectedRoute element={<Sizes />} />}/>
           <Route path='/sizes_create' element={<ProtectedRoute element={<Sizes_create />} />}/>

@@ -6,7 +6,7 @@ function Hangers_Create() {
     const navigate=useNavigate();
     const [formData, setFormData] = useState({
         hanger_name: 0,
-        hanger_price: "",
+        hanger_amount: "",
     });
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -47,6 +47,7 @@ function Hangers_Create() {
                                     <div className="mb-3">
                                         <label htmlFor="hangerName" className="form-label">Hanger Name</label>
                                         <input
+                                        name="hanger_name"
                                             onChange={handleChange}
                                             value={formData.hanger_name}
                                             type="text"
@@ -58,16 +59,16 @@ function Hangers_Create() {
                                     <div className="mb-3">
                                         <label htmlFor="hangerPrice" className="form-label">Hanger Price</label>
                                         <input
-                                         name="hanger_price"
+                                         name="hanger_amount"
                                          onChange={handleChange}
-                                         value={formData.hanger_price}
+                                         value={formData.hanger_amount}
                                             type="text"
                                             className="form-control"
                                             id="hangerPrice"
                                             placeholder="Enter Hanger Price"
                                         />
                                     </div>
-                                    <button type="button" className="btn btn-primary">Create</button>
+                                    <button type="submit" className="btn btn-primary">Create</button>
                                 </form>
                             </div>
                         </div>
