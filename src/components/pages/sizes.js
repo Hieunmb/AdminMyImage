@@ -45,7 +45,6 @@ function Sizes() {
                                                 <th>Id</th>
                                                 <th>Size Name</th>
                                                 <th>Size Width</th>
-                                                <th>Size Height</th>
                                                 <th>Size Price</th>
                                                 <th>Actions</th>
                                             </tr>

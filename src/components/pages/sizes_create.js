@@ -8,7 +8,6 @@ function Sizes_create() {
         size_amount: 0,
         size_name: "",
         size_width:"",
-        size_height:"",
     });
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -70,18 +69,7 @@ function Sizes_create() {
                                             placeholder="Enter Size Width"
                                         />
                                     </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="OrderSizeHeight" className="form-label">Size Height</label>
-                                        <input
-                                        name="size_height"
-                                        onChange={handleChange}
-                                        value={formData.size_height}
-                                            type="text"
-                                            className="form-control"
-                                            id="orderSizeHeight"
-                                            placeholder="Enter Size Height"
-                                        />
-                                    </div>
+                
                                     <div className="mb-3">
                                         <label htmlFor="OrderSizePrice" className="form-label">Size Price</label>
                                         <input

@@ -11,21 +11,18 @@ function Sizes_Edit() {
         size_amount: 0,
         size_name: "",
         size_width:"",
-        size_height:"",
     });
     const fetchData = async () => {
         try {
             const response = await api.get(url.SIZE.GET+`?id=${id}`); // Fetch data for the specific 'id'
             const { size_amount,
                 size_name,
-                size_width,
-                size_height, } = response.data;
+                size_width } = response.data;
             setFormData({
                 ...formData,
                 size_amount,
                 size_name,
                 size_width,
-                size_height,
             });
         } catch (error) {
             console.error(error);
@@ -95,18 +92,7 @@ function Sizes_Edit() {
                                             placeholder="Enter Size Width"
                                         />
                                     </div>
-                                    <div className="mb-3">
-                                        <label htmlFor="OrderSizeHeight" className="form-label">Size Height</label>
-                                        <input
-                                        name="size_height"
-                                        onChange={handleChange}
-                                        value={formData.size_height}
-                                            type="text"
-                                            className="form-control"
-                                            id="orderSizeHeight"
-                                            placeholder="Enter Size Height"
-                                        />
-                                    </div>
+                                    
                                     <div className="mb-3">
                                         <label htmlFor="OrderSizePrice" className="form-label">Size Price</label>
                                         <input
