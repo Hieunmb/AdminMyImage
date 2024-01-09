@@ -60,12 +60,11 @@ const ProtectedLoginRoute = ({ element }) => {
           <Route path='/login' element={<ProtectedLoginRoute element={<Login />} />} />
           <Route path='/' element={<ProtectedRoute element={<Dashboard />} />}/>
           <Route path='/users' element={<ProtectedRoute element={<Users />} />}/>
-          <Route path='/view_orders' element={<ProtectedRoute element={<View_orders />} />}/>
+          <Route path='/view_orders/:id' element={<ProtectedRoute element={<View_orders />} />}/>
           <Route path='/feedback' element={<ProtectedRoute element={<Feedback />} />}/>
 
           <Route path='/orders' element={<ProtectedRoute element={<Orders />} />}/>
           <Route path='/orders_create' element={<ProtectedRoute element={<Orders_create />} />}/>
-          <Route path='/orders_edit' element={<ProtectedRoute element={<Orders_edit />} />}/>
 
           <Route path='/hangers' element={<ProtectedRoute element={<Hangers />} />}/>
           <Route path='/hangers_create' element={<ProtectedRoute element={<Hangers_create />} />}/>

@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import Order from "../views/order";
+
 function Orders() {
+
+    const [products,setProducts] = useState([]);
+    const loadProducts = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.LIST);
+            setProducts(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadProducts();
+    },[]);
+
+    
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -33,56 +53,13 @@ function Orders() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr style={{verticalAlign: "initial"}}>
-                                                <td>1</td>
-                                                <td>Nguyễn Đức Anh</td>
-                                                <td>50$</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td>10-7-2017</td>
-                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
-                                            </tr>
-                                            <tr style={{verticalAlign: "initial"}}>
-                                                <td>2</td>
-                                                <td>Nguyễn Đức Anh</td>
-                                                <td>50$</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td>10-7-2017</td>
-                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
-                                            </tr>
-                                            <tr style={{verticalAlign: "initial"}}>
-                                                <td>3</td>
-                                                <td>Nguyễn Đức Anh</td>
-                                                <td>50$</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td>10-7-2017</td>
-                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
-                                            </tr>
-                                            <tr style={{verticalAlign: "initial"}}>
-                                                <td>4</td>
-                                                <td>Nguyễn Đức Anh</td>
-                                                <td>50$</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td>10-7-2017</td>
-                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
-                                            </tr>
-                                            <tr style={{verticalAlign: "initial"}}>
-                                                <td>5</td>
-                                                <td>Nguyễn Đức Anh</td>
-                                                <td>50$</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td>10-7-2017</td>
-                                                <td><a href="/view_orders" className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}> View</a></td>
-                                            </tr>
+                                        {
+                                            products.map((e,k)=>{
+                                                return (
+                                                    <Order key={k} product={e} />
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>

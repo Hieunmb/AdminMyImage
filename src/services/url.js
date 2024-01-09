@@ -25,6 +25,18 @@ const url ={
         EDIT:"/Hanger",
         DELETE:"/Hanger",
         GET:"/Hanger/get-by-id"
+    },
+    ORDER:{
+        LIST:"/Order",
+        CREATE:"/Order",
+        UPDATEORDER:"/Order/UpdateOrder",
+        CANCELORDER:"/Order/CancelOrder",
+        GET:"/Order/get-by-id"
+    },
+    ORDERIMAGE:{
+        LIST:"/OrderImage",
+        CREATE:"/OrderImage",
+        GET:"/OrderImage/get-by-order-id"
     }
 }
 export default url;

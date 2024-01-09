@@ -1,4 +1,68 @@
+import { useState,useEffect } from "react";
+import url from "../../services/url";
+import api from "../../services/api";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function View_orders() {
+    const {id} = useParams();
+    const navigate=useNavigate();
+    const [order, setOrder] = useState([]);
+    const [orderimage, setOrderImage] = useState([]);
+    const [totalAmount, setTotalAmount] = useState(0);
+    const loadOrder = async()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET+`?id=${id}`);
+            setOrder(rs.data);
+        } catch (error) {
+            console.error("Error loading order:", error);
+        }
+    }
+
+    const loadOrderImage = async()=>{
+        try {
+            const rs = await api.get(url.ORDERIMAGE.GET+`?orderId=${id}`);
+            setOrderImage(rs.data);
+
+            const total = rs.data.reduce((acc, image) => acc + image.amount, 0);
+            setTotalAmount(total);
+
+        } catch (error) {
+            console.error("Error loading order:", error);
+        }
+    }
+
+    useEffect(()=>{
+        loadOrder();
+        loadOrderImage();
+    },[]);
+
+
+
+    const handleUpdateOrder = async () => {
+        try {
+            const rs = await api.put(url.ORDER.UPDATEORDER + `?Id=${id}`);
+            window.alert(`This order has been updated !`);
+            // Logic sau khi xác nhận đơn hàng thành công
+            navigate(`/view_orders/${id}`);
+            console.log("Order confirmed successfully:", rs.data);
+        } catch (error) {
+            console.error("Error confirming order:", error);
+        }
+    };
+
+    const handleCancelOrder = async () => {
+        try {
+            const rs = await api.put(url.ORDER.CANCELORDER + `?Id=${id}`);
+            window.alert(`This order has been cancelled !`);
+            // Logic sau khi hủy đơn hàng thành công
+            navigate(`/view_orders/${id}`);
+            console.log("Order canceled successfully:", rs.data);
+        } catch (error) {
+            console.error("Error canceling order:", error);
+        }
+    };
+
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -36,19 +100,24 @@ function View_orders() {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td><img src="../assets/images/gallery/chair.jpg" alt="iMac" width="80"/></td>
-                                                        <td>Khung den hong</td>
-                                                        <td>Mac treo bang sat</td>
-                                                        <td>20 x 30</td>
-                                                        <td>20</td>
-                                                        <td>10-12-2009</td>
-                                                        <td class="font-500">$153</td>
+                                                    {
+                                                        orderimage.map(image =>(
+                                                        <tr>
+                                                        <td>{image.id}</td>
+                                                        <td><img src={image.thumbnail} alt="Thumbnail" width="80"/></td>
+                                                        <td>{image?.frame?.frame_name}</td>
+                                                        <td>{image?.hanger?.hanger_name}</td>
+                                                        <td>{image?.size?.size_name}</td>
+                                                        <td>{image.quantity}</td>
+                                                        <td>{image?.order?.created_at}</td>
+                                                        <td class="font-500">${image.amount}</td>
                                                     </tr>
+                                                        ))
+                                                    }
+                                                    
                                                     <tr>
                                                         <td colspan="7" class="font-500" align="right">Total Amount</td>
-                                                        <td class="font-500">$153</td>
+                                                        <td class="font-500">${order.total_amount}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -57,21 +126,70 @@ function View_orders() {
                                     <div className="row" style={{marginLeft:"40px"}}>
                                         <div className="col-xl-6">
                                             <ul className="list-unstyled">
-                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Name: </span><span>Nguyen Hoang Hiep</span></li>
-                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Email: </span><span>hiepga1243@gmail.com</span></li>
-                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Phone: </span><span>0396321425</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Name: </span><span>{order?.user?.name}</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Email: </span><span>{order.email}</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Phone: </span><span>{order.phone}</span></li>
                                             </ul>
                                         </div>
                                         <div className="col-xl-6">
                                             <ul className="list-unstyled">
-                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Street: </span><span>So 10 ngo 83/51/21 Tan Trieu</span></li>
-                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>City: </span><span>Ha Noi</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>Street: </span><span>{order.address}</span></li>
+                                                <li className="text-muted"><span style={{fontWeight:"bold"}}>City: </span><span>{order.city}</span></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div style={{marginTop:"20px", marginLeft:"45px", marginBottom:"30px"}}>
-                                        <a href="#" className="btn btn-success">Confirm</a>
-                                        <a href="#" className="btn btn-primary" style={{marginLeft:"20px"}}>Cancel</a>
+                                    {
+                                        (() => {
+                                        switch (order.status) {
+                                            case 0:
+                                            return <>
+                                             <i style={{color:"red",fontSize:"25px",fontWeight:"bold"}}>Canceled</i>
+                                            </>;
+                                            
+                                            case 1:
+                                                return <>
+                                                <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Waitting</i>
+                                                <br></br>
+                                                <br></br>
+                                                <a onClick={handleCancelOrder} className="btn btn-danger">Cancel</a>   
+                                                <a onClick={handleUpdateOrder} className="btn btn-success" style={{marginLeft:"20px"}}>Confirm</a>
+                                                </>;
+
+                                            case 2:
+                                                return <>
+                                                <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Confirmed</i>
+                                                <br></br>
+                                                <br></br>
+                                                <a onClick={handleUpdateOrder} className="btn btn-success">Transport</a>
+                                                </>;
+
+                                            case 3:
+                                                return <>
+                                                <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Shipping</i>
+                                                <br></br>
+                                                <br></br>
+                                                <a onClick={handleUpdateOrder} className="btn btn-success">Shipped</a>
+                                                </>;
+
+                                            case 4:
+                                                return <>
+                                                <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Shipped</i>
+                                                <br></br>
+                                                <br></br>
+                                                <a onClick={handleUpdateOrder} className="btn btn-success">Successed</a>
+                                                </>;
+
+                                            case 5:
+                                                return <>
+                                                <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Successed</i>
+                                                </>;
+                                            default:
+                                            return null;
+                                        }
+                                        })()
+                                    }
+                                        
                                     </div>
                                 </div>
                             </div>
