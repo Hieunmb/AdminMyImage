@@ -109,7 +109,50 @@ function Dashboard() {
                                 <br></br>
                                     <h1 class="font-light"><i class="ti-user text-inverse"></i> {users.length}</h1>
                                 </div>
-                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex m-b-40 align-items-center no-block">
+                                    <h5 class="card-title ">PRODUCT SALES</h5>
+                                    <div class="ms-auto">
+                                        <ul class="list-inline font-12">
+                                            <li><i class="fa fa-circle text-cyan"></i> Iphone</li>
+                                            <li><i class="fa fa-circle text-primary"></i> IMac</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div id="morris-area-chart2" style={{height: "400px"}}></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">ORDER STATS</h5>
+                                        <div id="morris-donut-chart" class="ecomm-donute"></div>
+                                        <ul class="list-inline m-t-30 text-center mb-1 d-flex">
+                                            <li class="list-inline-item p-r-20">
+                                                <h5 class="text-muted"><i class="fa fa-circle" style={{color: "#fb9678"}}></i> Order</h5>
+                                                <h4 class="m-b-0">8500</h4>
+                                            </li>
+                                            <li class="list-inline-item p-r-20">
+                                                <h5 class="text-muted"><i class="fa fa-circle" style={{color: "#01c0c8"}}></i> Pending</h5>
+                                                <h4 class="m-b-0">3630</h4>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <h5 class="text-muted"> <i class="fa fa-circle" style={{color: "#4F5467"}}></i> Delivered</h5>
+                                                <h4 class="m-b-0">4870</h4>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
