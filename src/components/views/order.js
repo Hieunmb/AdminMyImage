@@ -7,7 +7,7 @@ function Order(props){
         <tr style={{verticalAlign: "initial"}}>
             <td>{order.id}</td>
             <td>{order.user.name}</td>
-            <td>{order.total_amount}</td>
+            <td>${order.total_amount}</td>
             <td>
                 {
                     (() => {

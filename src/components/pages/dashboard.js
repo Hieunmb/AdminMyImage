@@ -1,4 +1,49 @@
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import { Link } from "react-router-dom";
+
 function Dashboard() {
+
+    const [orders,setOrders] = useState([]);
+    const [today_orders,setTodayOrders] = useState([]);
+    const [today_amount, setTodayAmout] = useState(0);
+    const [users,setUsers] = useState([]);
+    const loadOrders = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_ORDER_WAITTING);
+            setOrders(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    const loadTodayOrders = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_TODAY_ORDERS);
+            setTodayOrders(rs.data);
+
+            const total = rs.data.reduce((acc, today_orders) => acc + today_orders.total_amount, 0);
+            setTodayAmout(total);
+
+        } catch (error) {
+            
+        }
+    }
+    const loadUsers = async ()=>{
+        try {
+            const rs = await api.get(url.USER.LIST);
+            setUsers(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadOrders();
+        loadTodayOrders();
+        loadUsers();
+    },[]);
+
+
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -12,7 +57,6 @@ function Dashboard() {
                                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
                                 <li class="breadcrumb-item active">Dashboard</li>
                             </ol>
-                            <button type="button" class="btn btn-info d-none d-lg-block m-l-15 text-white">Create New</button>
                         </div>
                     </div>
                 </div>
@@ -20,56 +64,52 @@ function Dashboard() {
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">ORDER RECEIVED</h4>
-                                <div class="text-end"> <span class="text-muted">Todays Order</span>
-                                    <h1 class="font-light"><sup><i class="ti-arrow-up text-success"></i></sup> 12,000</h1>
+                                <h4 class="card-title">NEW ORDERS</h4>
+                                <div class="text-end"> <span class="text-muted">Waitting Order</span>
+                                    <br></br>
+                                    <br></br>
+                                    <h1 class="font-light"><i class="ti-bag text-success"></i> {orders.length}</h1>
                                 </div>
-                                <span class="text-success">20%</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style={{width: "20%", height: "6px"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                              
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">TAX DEDUCATION</h4>
-                                <div class="text-end"> <span class="text-muted">Monthly Deduction</span>
-                                    <h1 class="font-light"><sup><i class="ti-arrow-up text-primary"></i></sup> $5,000</h1>
+                                <h4 class="card-title">TODAY ORDERS</h4>
+                                <div class="text-end"> <span class="text-muted">orders in today</span>
+                                <br></br>
+                                    <br></br>
+                                    <h1 class="font-light"><i class="ti-bag text-primary"></i> {today_orders.length}</h1>
                                 </div>
-                                <span class="text-primary">30%</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" style={{width: "30%", height: "6px"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">REVENUE STATS</h4>
-                                <div class="text-end"> <span class="text-muted">Todays Income</span>
-                                    <h1 class="font-light"><sup><i class="ti-arrow-down text-info"></i></sup> $8,000</h1>
+                                <h4 class="card-title">Today Amounts</h4>
+                                <div class="text-end"> <span class="text-muted">Total amount in today</span>
+                                <br></br>
+                                <br></br>
+                                    <h1 class="font-light"><i class="ti-money text-info"></i>{today_amount}</h1>
                                 </div>
-                                <span class="text-info">60%</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style={{width: "60%", height: "6px"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">YEARLY SALES</h4>
-                                <div class="text-end"> <span class="text-muted">Yearly  Income</span>
-                                    <h1 class="font-light"><sup><i class="ti-arrow-up text-inverse"></i></sup> $12,000</h1>
+                                <h4 class="card-title">List User</h4>
+                                <div class="text-end"> <span class="text-muted">Number of users</span>
+                                <br></br>
+                                <br></br>
+                                    <h1 class="font-light"><i class="ti-user text-inverse"></i> {users.length}</h1>
                                 </div>
-                                <span class="text-inverse">80%</span>
-                                <div class="progress">
-                                    <div class="progress-bar bg-inverse" role="progressbar" style={{width: "80%", height: "6px"}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -83,73 +123,49 @@ function Dashboard() {
                                     <table class="table product-overview">
                                         <thead>
                                             <tr>
-                                                <th>Customer</th>
                                                 <th>Order ID</th>
-                                                <th>Photo</th>
-                                                <th>Product</th>
+                                                <th>Total Amount</th>
                                                 <th>Quantity</th>
-                                                <th>Date</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th>Created at</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {orders.map(order =>(
                                             <tr>
-                                                <td>Steave Jobs</td>
-                                                <td>#85457898</td>
+                                                <td>{order.id}</td>
+                                                <td>${order.total_amount}</td>
                                                 <td>
-                                                    <img src="../assets/images/gallery/chair.jpg" alt="iMac" width="80"/>
-                                                </td>
-                                                <td>Rounded Chair</td>
-                                                <td>20</td>
-                                                <td>10-7-2017</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td><a href="#" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
+                                                    {
+                                                        (() => {
+                                                        switch (order.status) {
+                                                            case 0:
+                                                            return <span className="label label-danger">Canceled</span>;
+
+                                                            case 1:
+                                                            return <span className="label label-warning">Waitting...</span>;
+
+                                                            case 2:
+                                                            return <span className="label label-success">Confirmed</span>;
+
+                                                            case 3:
+                                                            return <span className="label label-success">Shipping...</span>;
+
+                                                            case 4:
+                                                            return <span className="label label-success">Shipped</span>;
+
+                                                            case 5:
+                                                            return <span className="label label-success">Successed</span>;
+
+                                                            default:
+                                                            return null;
+                                                        }
+                                                        })()
+                                                    }
+                                                </td>                                                
+                                                <td>{order.created_at}</td>
+                                                <td><Link to={`/view_orders/${order.id}`} className="btn btn-primary" style={{border:"0", backgroundColor:"#03a9f3"}}>View</Link></td>
                                             </tr>
-                                            <tr>
-                                                <td>Varun Dhavan</td>
-                                                <td>#95457898</td>
-                                                <td>
-                                                    <img src="../assets/images/gallery/chair2.jpg" alt="iPhone" width="80"/>
-                                                </td>
-                                                <td>Wooden Chair</td>
-                                                <td>25</td>
-                                                <td>09-7-2017</td>
-                                                <td>
-                                                    <span class="label label-warning">Pending</span>
-                                                </td>
-                                                <td><a href="#" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ritesh Desh</td>
-                                                <td>#68457898</td>
-                                                <td>
-                                                    <img src="../assets/images/gallery/chair3.jpg" alt="apple_watch" width="80"/>
-                                                </td>
-                                                <td>Gray Chair</td>
-                                                <td>12</td>
-                                                <td>08-7-2017</td>
-                                                <td>
-                                                    <span class="label label-success">Paid</span>
-                                                </td>
-                                                <td><a href="#" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hrithik</td>
-                                                <td>#45457898</td>
-                                                <td>
-                                                    <img src="../assets/images/gallery/chair4.jpg" alt="mac_mouse" width="80"/>
-                                                </td>
-                                                <td>Pure Wooden chair</td>
-                                                <td>18</td>
-                                                <td>02-7-2017</td>
-                                                <td>
-                                                    <span class="label label-danger">Failed</span>
-                                                </td>
-                                                <td><a href="#" class="text-inverse p-r-10" data-bs-toggle="tooltip" title="" data-original-title="Edit"><i class="ti-marker-alt"></i></a> <a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>

@@ -1,4 +1,24 @@
+import { useEffect , useState } from "react";
+import api from "../../services/api";
+import url from "../../services/url";
+import User from "../views/user";
+
 function Users() {
+
+    const [users,setUsers] = useState([]);
+    const loadUsers = async ()=>{
+        try {
+            const rs = await api.get(url.USER.LIST);
+            setUsers(rs.data);
+        } catch (error) {
+            
+        }
+    }
+    useEffect(()=>{
+        loadUsers();
+    },[]);
+
+
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -31,60 +51,17 @@ function Users() {
                                                 <th>Address</th>
                                                 <th>City</th>
                                                 <th>Role</th>
-                                                <th>Actions</th>
+                                                {/* <th>Actions</th> */}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Nguyen Hoang Hiep</td>
-                                                <td>hiepga1243@gmail.com</td>
-                                                <td>0396321425</td>
-                                                <td>so 235 ngo 22 Ton That Tung</td>
-                                                <td>Ha Noi</td>
-                                                <td>admin</td>
-                                                <td><a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Nguyen Hoang Hiep</td>
-                                                <td>hiepga1243@gmail.com</td>
-                                                <td>0396321425</td>
-                                                <td>so 235 ngo 22 Ton That Tung</td>
-                                                <td>Ha Noi</td>
-                                                <td>admin</td>
-                                                <td><a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Nguyen Hoang Hiep</td>
-                                                <td>hiepga1243@gmail.com</td>
-                                                <td>0396321425</td>
-                                                <td>so 235 ngo 22 Ton That Tung</td>
-                                                <td>Ha Noi</td>
-                                                <td>admin</td>
-                                                <td><a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Nguyen Hoang Hiep</td>
-                                                <td>hiepga1243@gmail.com</td>
-                                                <td>0396321425</td>
-                                                <td>so 235 ngo 22 Ton That Tung</td>
-                                                <td>Ha Noi</td>
-                                                <td>admin</td>
-                                                <td><a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>Nguyen Hoang Hiep</td>
-                                                <td>hiepga1243@gmail.com</td>
-                                                <td>0396321425</td>
-                                                <td>so 235 ngo 22 Ton That Tung</td>
-                                                <td>Ha Noi</td>
-                                                <td>admin</td>
-                                                <td><a href="#" class="text-inverse" title="" data-bs-toggle="tooltip" data-original-title="Delete"><i class="ti-trash"></i></a></td>
-                                            </tr>
+                                            {
+                                            users.map((e,k)=>{
+                                                return (
+                                                    <User key={k} user={e} />
+                                                )
+                                            })
+                                            }
                                         </tbody>
                                     </table>
                                 </div>
