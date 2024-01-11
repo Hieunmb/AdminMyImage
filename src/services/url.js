@@ -34,11 +34,11 @@ const url ={
         GET:"/Order/get-by-id",
         GET_ORDER_CANCELLED:"Order/get-order-cancelled",
         GET_ORDER_WAITTING:"Order/get-order-waitting",
-        GET_ORDER_CONFIRMED:"Order/get-order-confirm",
+        GET_ORDER_CONFIRMED:"Order/get-order-confirmed",
         GET_ORDER_SHIPPING:"Order/get-order-shipping",
         GET_ORDER_SHIPPED:"Order/get-order-shipped",
         GET_ORDER_SUCCESSED:"Order/get-order-successed",
-        GET_TODAY_ORDERS:"Order/today-orders"
+        GET_ORDER_TODAY:"Order/today-orders"
     },
     ORDERIMAGE:{
         LIST:"/OrderImage",

@@ -22,7 +22,7 @@ function Order(props){
                         return <span className="label label-success">Confirmed</span>;
 
                         case 3:
-                        return <span className="label label-success">Shipping...</span>;
+                        return <span className="label label-warning">Shipping...</span>;
 
                         case 4:
                         return <span className="label label-success">Shipped</span>;

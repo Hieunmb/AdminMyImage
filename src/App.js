@@ -20,6 +20,13 @@ import Frames_create from './components/pages/frames_create';
 import Frames_edit from './components/pages/frames_edit';
 import Login from './components/pages/login';
 import { useJwt } from 'react-jwt';
+import Orders_Waitting from './components/pages/orders_waitting';
+import Orders_Today from './components/pages/orders_today';
+import Orders_Confirmed from './components/pages/orders_confirmed';
+import Orders_Shipping from './components/pages/orders_shipping';
+import Orders_Shipped from './components/pages/orders_shipped';
+import Orders_Successed from './components/pages/orders_successed';
+import Orders_Cancelled from './components/pages/orders_cancelled';
 
 function App() {
   const ProtectedRoute = ({ element }) => {
@@ -65,6 +72,14 @@ const ProtectedLoginRoute = ({ element }) => {
 
           <Route path='/orders' element={<ProtectedRoute element={<Orders />} />}/>
           <Route path='/orders_create' element={<ProtectedRoute element={<Orders_create />} />}/>
+
+          <Route path='/orders_waitting' element={<ProtectedRoute element={<Orders_Waitting />} />}/>
+          <Route path='/orders_today' element={<ProtectedRoute element={<Orders_Today />} />}/>
+          <Route path='/orders_confirmed' element={<ProtectedRoute element={<Orders_Confirmed />} />}/>
+          <Route path='/orders_shipping' element={<ProtectedRoute element={<Orders_Shipping />} />}/>
+          <Route path='/orders_shipped' element={<ProtectedRoute element={<Orders_Shipped />} />}/>
+          <Route path='/orders_successed' element={<ProtectedRoute element={<Orders_Successed />} />}/>
+          <Route path='/orders_cancelled' element={<ProtectedRoute element={<Orders_Cancelled />} />}/>
 
           <Route path='/hangers' element={<ProtectedRoute element={<Hangers />} />}/>
           <Route path='/hangers_create' element={<ProtectedRoute element={<Hangers_create />} />}/>

@@ -64,7 +64,7 @@ function Dashboard() {
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">NEW ORDERS</h4>
+                                <h4 class="card-title"><Link to={"/orders_waitting"}>NEW ORDERS</Link></h4>
                                 <div class="text-end"> <span class="text-muted">Waitting Order</span>
                                     <br></br>
                                     <br></br>
@@ -77,7 +77,7 @@ function Dashboard() {
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">TODAY ORDERS</h4>
+                                <h4 class="card-title"><Link to={"/orders_today"}>TODAY ORDERS</Link></h4>
                                 <div class="text-end"> <span class="text-muted">orders in today</span>
                                 <br></br>
                                     <br></br>
@@ -103,7 +103,7 @@ function Dashboard() {
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">List User</h4>
+                                <h4 class="card-title"><Link to={"/users"}>List User</Link></h4>
                                 <div class="text-end"> <span class="text-muted">Number of users</span>
                                 <br></br>
                                 <br></br>
