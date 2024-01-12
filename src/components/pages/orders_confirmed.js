@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import url from "../../services/url";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Orders_Confirmed() {
 
+    const navigate = useNavigate();
     const [orders,setOrders] = useState([]);
+    const [selectedFilter, setSelectedFilter] = useState('');
+
     const loadOrders = async ()=>{
         try {
             const rs = await api.get(url.ORDER.GET_ORDER_CONFIRMED);
@@ -18,6 +22,37 @@ function Orders_Confirmed() {
         loadOrders();
     },[]);
 
+    const handleFilterChange = (event) => {
+        const selectedValue = event.target.value;
+        setSelectedFilter(selectedValue);
+    
+        // Kiểm tra giá trị được chọn và thực hiện chuyển hướng
+        switch (selectedValue) {
+          case 'all_orders':
+            navigate('/orders');
+            break;
+          case 'orders_waitting':
+            navigate('/orders_waitting');
+            break;
+          case 'orders_confirmed':
+            navigate('/orders_confirmed');
+            break;
+          case 'orders_shipping':
+            navigate('/orders_shipping');
+            break;
+          case 'orders_shipped':
+            navigate('/orders_shipped');
+            break;
+          case 'orders_successed':
+            navigate('/orders_successed');
+            break;
+          case 'orders_cancelled':
+            navigate('/orders_cancelled');
+            break;
+          default:
+            break;
+        }
+    };
     
     return (
         <div class="page-wrapper">
@@ -39,7 +74,20 @@ function Orders_Confirmed() {
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">List Orders Confirmed</h5>
+                            <div className="top_select" style={{display:"flex"}}>
+                                    <h5 class="card-title">List Orders Confirmed</h5>
+                                    <div className="select_status" style={{ marginLeft: "auto" }}>
+                                        <select name="FilterOrder" value={selectedFilter} onChange={handleFilterChange}>
+                                            <option value="all_orders">All Orders</option>
+                                            <option value="orders_waitting">Orders Waitting</option>
+                                            <option value="orders_confirmed">Orders Confirmed</option>
+                                            <option value="orders_shipping">Orders Shipping</option>
+                                            <option value="orders_shipped">Orders Shipped</option>
+                                            <option value="orders_successed">Orders Succeeded</option>
+                                            <option value="orders_cancelled">Orders Canceled</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>
