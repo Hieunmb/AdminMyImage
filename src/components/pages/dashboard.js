@@ -3,12 +3,39 @@ import api from "../../services/api";
 import url from "../../services/url";
 import { Link } from "react-router-dom";
 
+
 function Dashboard() {
+    const currentDate = new Date();
 
     const [orders,setOrders] = useState([]);
     const [today_orders,setTodayOrders] = useState([]);
-    const [today_amount, setTodayAmout] = useState(0);
+    const [today_amount, setTodayAmout] = useState([]);
+    const [yesterday_amount, setYesterdayAmout] = useState([]);
+    const [twodaysago_amount, setTwodaysagoAmout] = useState([]);
+    const [threedaysago_amount, setThreedaysagoAmout] = useState([]);
+    const [fourdaysago_amount, setFourdaysagoAmout] = useState([]);
+    const [fivedaysago_amount, setfivedaysagoAmout] = useState([]);
+    const [sixdaysago_amount, setSixdaysagoAmout] = useState([]);
+
+    const [month1_amount, setMonth1Amout] = useState([]);
+    const [month2_amount, setMonth2Amout] = useState([]);
+    const [month3_amount, setMonth3Amout] = useState([]);
+    const [month4_amount, setMonth4Amout] = useState([]);
+    const [month5_amount, setMonth5Amout] = useState([]);
+    const [month6_amount, setMonth6Amout] = useState([]);
+    const [month7_amount, setMonth7Amout] = useState([]);
+    const [month8_amount, setMonth8Amout] = useState([]);
+    const [month9_amount, setMonth9Amout] = useState([]);
+    const [month10_amount, setMonth10Amout] = useState([]);
+    const [month11_amount, setMonth11Amout] = useState([]);
+    const [month12_amount, setMonth12Amout] = useState([]);
+
     const [users,setUsers] = useState([]);
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1;
+    const year = currentDate.getFullYear()
+
+
     const loadOrders = async ()=>{
         try {
             const rs = await api.get(url.ORDER.GET_ORDER_WAITTING);
@@ -17,18 +44,204 @@ function Dashboard() {
             
         }
     }
+
     const loadTodayOrders = async ()=>{
         try {
-            const rs = await api.get(url.ORDER.GET_TODAY_ORDERS);
+            const rs = await api.get(url.ORDER.GET_ORDER_TODAY);
             setTodayOrders(rs.data);
-
-            const total = rs.data.reduce((acc, today_orders) => acc + today_orders.total_amount, 0);
-            setTodayAmout(total);
 
         } catch (error) {
             
         }
     }
+
+    const loadAmountToday = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_TODAY);
+            setTodayAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountYesterday = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_YESTERDAY);
+            setYesterdayAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountTwodaysago = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_TWODAYSAGO);
+            setTwodaysagoAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+    const loadAmountThreedaysago = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_THREEDAYSAGO);
+            setThreedaysagoAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+    const loadAmountFourdaysago = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_FOURDAYSAGO);
+            setFourdaysagoAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+    const loadAmountFivedaysago = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_FIVEDAYSAGO);
+            setfivedaysagoAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+    const loadAmountSixdaysago = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_SIXDAYSAGO);
+            setSixdaysagoAmout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+
+    const loadAmountMonth1 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH1);
+            setMonth1Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth2 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH2);
+            setMonth2Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+    
+    const loadAmountMonth3 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH3);
+            setMonth3Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth4 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH4);
+            setMonth4Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth5 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH5);
+            setMonth5Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth6 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH6);
+            setMonth6Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth7 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH7);
+            setMonth7Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth8 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH8);
+            setMonth8Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth9 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH9);
+            setMonth9Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth10 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH10);
+            setMonth10Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth11 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH11);
+            setMonth11Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
+    const loadAmountMonth12 = async ()=>{
+        try {
+            const rs = await api.get(url.ORDER.GET_AMOUNT_MONTH12);
+            setMonth12Amout(rs.data);
+
+        } catch (error) {
+            
+        }
+    }
+
     const loadUsers = async ()=>{
         try {
             const rs = await api.get(url.USER.LIST);
@@ -40,9 +253,81 @@ function Dashboard() {
     useEffect(()=>{
         loadOrders();
         loadTodayOrders();
+        loadAmountToday();
+        loadAmountYesterday();
+        loadAmountTwodaysago();
+        loadAmountThreedaysago();
+        loadAmountFourdaysago();
+        loadAmountFivedaysago();
+        loadAmountSixdaysago();
+
         loadUsers();
+
+        loadAmountMonth1();
+        loadAmountMonth2();
+        loadAmountMonth3();
+        loadAmountMonth4();
+        loadAmountMonth5();
+        loadAmountMonth6();
+        loadAmountMonth7();
+        loadAmountMonth8();
+        loadAmountMonth9();
+        loadAmountMonth10();
+        loadAmountMonth11();
+        loadAmountMonth12();
     },[]);
 
+
+    useEffect(()=>{
+
+        const xValues = [day-6, day-5, day-4, day-3, day-2 , day-1, day,];
+        const ctx = document.getElementById("myChart").getContext("2d");
+
+        new window.Chart(ctx, { 
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    data: [ sixdaysago_amount.total_amount, fivedaysago_amount.total_amount, fourdaysago_amount.total_amount, threedaysago_amount.total_amount, twodaysago_amount.total_amount, yesterday_amount.total_amount, today_amount.total_amount,],
+                    borderColor: "green",
+                    fill: false
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: `Amount in month ${month}`,
+                }
+            }
+        });
+
+        const aValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        const bValues = [month1_amount.total_amount, month2_amount.total_amount, month3_amount.total_amount, month4_amount.total_amount, month5_amount.total_amount, month6_amount.total_amount, month7_amount.total_amount, month8_amount.total_amount, month9_amount.total_amount, month10_amount.total_amount, month11_amount.total_amount, month12_amount.total_amount];
+        const barColors = ["red", "green", "blue", "orange", "brown", "yellow", "pink", "blue", "red", "green", "orange", "violet"];
+
+        const ctx2 = document.getElementById("myChart2").getContext("2d");
+
+        new window.Chart(ctx2, {
+            type: "bar",
+            data: {
+                labels: aValues,
+                datasets: [
+                    {
+                        backgroundColor: barColors,
+                        data: bValues,
+                    },
+                ],
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: `World Wine Production ${year}`,
+                },
+            },
+        });
+    })
 
     return (
         <div class="page-wrapper">
@@ -94,7 +379,7 @@ function Dashboard() {
                                 <div class="text-end"> <span class="text-muted">Total amount in today</span>
                                 <br></br>
                                 <br></br>
-                                    <h1 class="font-light"><i class="ti-money text-info"></i>{today_amount}</h1>
+                                    <h1 class="font-light"><i class="ti-money text-info"></i>{today_amount.total_amount}</h1>
                                 </div>
                                 
                             </div>
@@ -113,55 +398,19 @@ function Dashboard() {
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-8 col-md-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex m-b-40 align-items-center no-block">
-                                    <h5 class="card-title ">PRODUCT SALES</h5>
-                                    <div class="ms-auto">
-                                        <ul class="list-inline font-12">
-                                            <li><i class="fa fa-circle text-cyan"></i> Iphone</li>
-                                            <li><i class="fa fa-circle text-primary"></i> IMac</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div id="morris-area-chart2" style={{height: "400px"}}></div>
-                            </div>
-                        </div>
+                <div class="row" style={{backgroundColor:"#fff",width:"1249.2px",margin:"auto"}}>
+                    <div class="col-lg-6 col-md-12">
+                    <canvas id="myChart" style={{width:"100%",maxWidth:"1250px"}}></canvas>
                     </div>
-                    <div class="col-lg-4 col-md-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">ORDER STATS</h5>
-                                        <div id="morris-donut-chart" class="ecomm-donute"></div>
-                                        <ul class="list-inline m-t-30 text-center mb-1 d-flex">
-                                            <li class="list-inline-item p-r-20">
-                                                <h5 class="text-muted"><i class="fa fa-circle" style={{color: "#fb9678"}}></i> Order</h5>
-                                                <h4 class="m-b-0">8500</h4>
-                                            </li>
-                                            <li class="list-inline-item p-r-20">
-                                                <h5 class="text-muted"><i class="fa fa-circle" style={{color: "#01c0c8"}}></i> Pending</h5>
-                                                <h4 class="m-b-0">3630</h4>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <h5 class="text-muted"> <i class="fa fa-circle" style={{color: "#4F5467"}}></i> Delivered</h5>
-                                                <h4 class="m-b-0">4870</h4>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-6 col-md-12">
+                    <canvas id="myChart2" style={{width:"100%",maxWidth:"1250px"}}></canvas>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row"  style={{marginTop:"20px"}}>
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Product Overview</h5>
+                                <h5 class="card-title">Waitting Orders</h5>
                                 <div class="table-responsive m-t-30">
                                     <table class="table product-overview">
                                         <thead>
