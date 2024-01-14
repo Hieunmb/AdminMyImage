@@ -62,6 +62,16 @@ function View_orders() {
             console.error("Error canceling order:", error);
         }
     };
+    //thumbnail detail
+    const handlePrintThumbnail = (imageUrl) => {
+        const link = document.createElement("a");
+        link.href = imageUrl;
+        link.download = "thumbnail.jpg"; // Set the desired filename here
+        link.target = "_blank"; // Open in a new tab/window
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      };
 
     return (
         <div class="page-wrapper">
@@ -96,6 +106,7 @@ function View_orders() {
                                                         <th>Size</th>
                                                         <th>Quantity</th>
                                                         <th>Create At</th>
+                                                        <th>Action</th>
                                                         <th>Total</th>
                                                     </tr>
                                                 </thead>
@@ -110,13 +121,18 @@ function View_orders() {
                                                         <td>{image?.size?.size_name}</td>
                                                         <td>{image.quantity}</td>
                                                         <td>{image?.order?.created_at}</td>
+                                                        <td>
+                                                            <button onClick={() => handlePrintThumbnail(image.thumbnail)} className="btn btn-primary">
+                                                              Thumbnail Detail
+                                                            </button>
+                                                        </td>
                                                         <td class="font-500">${image.amount}</td>
                                                     </tr>
                                                         ))
                                                     }
                                                     
                                                     <tr>
-                                                        <td colspan="7" class="font-500" align="right">Total Amount</td>
+                                                        <td colspan="8" class="font-500" align="right">Total Amount</td>
                                                         <td class="font-500">${order.total_amount}</td>
                                                     </tr>
                                                 </tbody>
