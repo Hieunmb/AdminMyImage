@@ -45,7 +45,32 @@ function View_orders() {
             window.alert(`This order has been updated !`);
             // Logic sau khi xác nhận đơn hàng thành công
             navigate(`/view_orders/${id}`);
-            console.log("Order confirmed successfully:", rs.data);
+            if(rs.data.status==3)
+            console.log("Order confirmed successfully:", rs.data);const emailPayload = {
+                to: rs.data.email,
+                subject: "Payment Confirmation",
+                body: `<html>
+                <body>
+                  <h1 style="color: #333;">Your Order Confirmation</h1>
+                  <p style="font-size: 16px; color: #666;">
+                    Your order has been processed and is now on its way to you.
+                  </p>
+                  <p style="font-size: 14px; color: #888;">
+                    Please click the following link to view and confirm your order details:
+                    <a href="http://localhost:3000/orders" target="_blank" style="color: #007bff; text-decoration: none;">
+                      View Order Details
+                    </a>
+                  </p>
+                  <hr style="border-top: 1px solid #ddd;">
+                  <p style="font-size: 12px; color: #aaa;">
+                    This is an automated message. Please do not reply.
+                  </p>
+                </body>
+              </html>`,
+              };
+          
+              // Replace the following lines with your actual email sending logic
+              const emailResponse = await api.post('https://localhost:7174/send', emailPayload);
         } catch (error) {
             console.error("Error confirming order:", error);
         }
