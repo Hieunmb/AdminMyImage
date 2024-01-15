@@ -58,6 +58,7 @@ const url ={
         GET_AMOUNT_MONTH10:"Order/month10-orders-amount",
         GET_AMOUNT_MONTH11:"Order/month11-orders-amount",
         GET_AMOUNT_MONTH12:"Order/month12-orders-amount",
+        GET_ORDER_DAYSAGO:"Order/get-orders-days-ago"
     },
     ORDERIMAGE:{
         LIST:"/OrderImage",

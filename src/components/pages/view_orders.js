@@ -155,7 +155,6 @@ function View_orders() {
                                                 <a onClick={handleCancelOrder} className="btn btn-danger">Cancel</a>   
                                                 <a onClick={handleUpdateOrder} className="btn btn-success" style={{marginLeft:"20px"}}>Confirm</a>
                                                 </>;
-
                                             case 2:
                                                 return <>
                                                 <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Confirmed</i>
@@ -163,7 +162,6 @@ function View_orders() {
                                                 <br></br>
                                                 <a onClick={handleUpdateOrder} className="btn btn-success">Transport</a>
                                                 </>;
-
                                             case 3:
                                                 return <>
                                                 <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Shipping</i>
@@ -171,15 +169,10 @@ function View_orders() {
                                                 <br></br>
                                                 <a onClick={handleUpdateOrder} className="btn btn-success">Shipped</a>
                                                 </>;
-
                                             case 4:
                                                 return <>
                                                 <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Shipped</i>
-                                                <br></br>
-                                                <br></br>
-                                                <a onClick={handleUpdateOrder} className="btn btn-success">Successed</a>
                                                 </>;
-
                                             case 5:
                                                 return <>
                                                 <i style={{color:"green",fontSize:"20px",fontWeight:"bold"}}>Successed</i>

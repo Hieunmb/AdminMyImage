@@ -9,7 +9,7 @@ function Orders() {
     const [products,setProducts] = useState([]);
     const navigate = useNavigate();
     const [selectedFilter, setSelectedFilter] = useState('');
-
+    const [daysAgo, setDaysAgo] = useState(0);
     const loadProducts = async ()=>{
         try {
             const rs = await api.get(url.ORDER.LIST);
@@ -18,10 +18,10 @@ function Orders() {
             
         }
     }
+
     useEffect(()=>{
         loadProducts();
     },[]);
-
     
   const handleFilterChange = (event) => {
     const selectedValue = event.target.value;
@@ -54,7 +54,12 @@ function Orders() {
         break;
     }
 };
-    
+
+const handleRunButtonClick = () => {
+    // Chuyển sang trang orders_filterdays và truyền giá trị daysAgo
+    navigate(`/orders_filterdays/${daysAgo}`);
+}
+
     return (
         <div class="page-wrapper">
             <div class="container-fluid">
@@ -80,7 +85,7 @@ function Orders() {
                                 <div className="top_select" style={{display:"flex"}}>
                                     <h5 class="card-title">List Orders</h5>
                                     <div className="select_status" style={{ marginLeft: "auto" }}>
-                                        <select name="FilterOrder" value={selectedFilter} onChange={handleFilterChange}>
+                                        <select style={{height:"35px"}} name="FilterOrder" value={selectedFilter} onChange={handleFilterChange}>
                                             <option value="all_orders">All Orders</option>
                                             <option value="orders_waitting">Orders Waitting</option>
                                             <option value="orders_confirmed">Orders Confirmed</option>
@@ -89,6 +94,12 @@ function Orders() {
                                             <option value="orders_successed">Orders Succeeded</option>
                                             <option value="orders_cancelled">Orders Canceled</option>
                                         </select>
+                                    </div>
+                                    <div className="filter_days" style={{ marginLeft: "50px" }}>
+                                        <form action="" style={{ display: "flex" }}>
+                                            <input onChange={(e) => setDaysAgo(parseInt(e.target.value, 10))} value={daysAgo} min={0} type="number" style={{ width: "120px", marginRight: "5px", height: "35px" }} placeholder="Filter Days Ago" />
+                                            <button type="button" onClick={handleRunButtonClick} className="btn btn-primary">Run</button>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="table-responsive m-t-30">
